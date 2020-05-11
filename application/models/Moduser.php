@@ -9,17 +9,17 @@ class Modkegiatan extends CI_Model
     }
 
     public function save($data){
-        $this->db->insert('tbl_kegiatan',$data);
+        $this->db->insert('tbl_user',$data);
     }
 
     public function update($id_kegiatan,$data){
-        $this->db->where('id_kegiatan',$id_kegiatan);
-        $this->db->update('tbl_kegiatan',$data);
+        $this->db->where('id_user',$id_kegiatan);
+        $this->db->update('tbl_user',$data);
     }
 
-    public function getid($id_kegiatan){
-        $this->db->from('tbl_kegiatan');
-    	$this->db->where('id_kegiatan',$id_kegiatan);
+    public function getid($id_user){
+        $this->db->from('tbl_user');
+    	$this->db->where('id_user',$id_user);
     	$query=$this->db->get();
     	if($query->num_rows()>0){
     		return $query->result();
@@ -28,9 +28,9 @@ class Modkegiatan extends CI_Model
     	}
     }
     
-    public function delete($id_kegiatan){
-        $this->db->where('id_kegiatan',$id_kegiatan);        
-        $this->db->delete('tbl_kegiatan');
+    public function delete($id_user){
+        $this->db->where('id_user',$id_user);        
+        $this->db->delete('tbl_user');
     }
 
 }
