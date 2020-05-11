@@ -1,6 +1,6 @@
 <?php
 
-class Modkegiatan extends CI_Model
+class Moduser extends CI_Model
 {
 
        function __construct()
@@ -12,8 +12,8 @@ class Modkegiatan extends CI_Model
         $this->db->insert('tbl_user',$data);
     }
 
-    public function update($id_kegiatan,$data){
-        $this->db->where('id_user',$id_kegiatan);
+    public function update($id_user,$data){
+        $this->db->where('id_user',$id_user);
         $this->db->update('tbl_user',$data);
     }
 
@@ -31,6 +31,15 @@ class Modkegiatan extends CI_Model
     public function delete($id_user){
         $this->db->where('id_user',$id_user);        
         $this->db->delete('tbl_user');
+    }
+
+    public function read(){  	
+    	$query=$this->db->get('tbl_user');
+    	if($query->num_rows()>0){
+    		return $query->result();
+    	}else{
+    		return 0;
+    	}
     }
 
 }
